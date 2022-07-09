@@ -10,6 +10,7 @@ public class Dream implements Comparable<Dream> {
   private ArrayList <Dream> dreamList = new ArrayList<>();
 
 
+
   public static void main(String[] args) {
     Dream main = new Dream(0,0,"");
 
@@ -25,31 +26,35 @@ public class Dream implements Comparable<Dream> {
 
   public void go(){
     creatDream();
-    printdream();
+    printDream();
+    System.out.println(isPleasant());
 
   }
 
   public void creatDream(){
 
-    dreamList.add(new Dream(17,5,"Tør"));
+    dreamList.add(new Dream(17,11,"Tør"));
 
     dreamList.add(new Dream(15,11,"Våd"));
 
     dreamList.add(new Dream(18,23,"Mareridt"));
   }
 
-  public boolean isPleasant(){
-    if(type.equalsIgnoreCase("Mareridt")){
+  public boolean isPleasant() {
+
+    Dream d1 = new Dream(12,11,"Tør");
+
+    if (d1.type.equalsIgnoreCase("Mareridt")) {
+        return false;
+      } else if (d1.type.equalsIgnoreCase("Våd") && d1.duration >= 10) {
+        return false;
+      } else if (d1.type.equalsIgnoreCase("Tør") && d1.duration <= 10) {
       return false;
     }
-    else if(type.equalsIgnoreCase("Våd") && duration >=10){
-      return false;
-    }
-    else if(type.equalsIgnoreCase("Tør") && duration <= 10){
-      return false;
-    }
-    else return true;
+      else return true;
+
   }
+
 
   public int compareTo(Dream dr){
     if(date == dr.date){
@@ -61,7 +66,7 @@ public class Dream implements Comparable<Dream> {
     else return -1;
   }
 
-  public void printdream(){
+  public void printDream(){
     Collections.sort(dreamList);
     for(Dream dr : dreamList){
       System.out.println(dr.date +" " + dr.duration+" "+ dr.type);
