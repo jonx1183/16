@@ -55,7 +55,6 @@ public class Dream implements Comparable<Dream> {
 
   }
 
-
   public int compareTo(Dream dr){
     if(date == dr.date){
       return 0;
