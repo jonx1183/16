@@ -4,6 +4,7 @@ public class Main {
   Et et = new Et();
   To to = new To();
   Tre tre = new Tre();
+  Fire fire = new Fire();
   public static void main(String[] args) {
     Main main = new Main();
     main.go();
@@ -15,7 +16,9 @@ public class Main {
     //o.checkArray();
     //System.out.println(to.checkArray());
     //tre.array();
-    tre.count();
+    //tre.count();
+    fire.createNormal();
+    fire.createReverse();
   }
 
   @Override
@@ -24,4 +27,6 @@ public class Main {
         "et=" + et +
         '}';
   }
+
+
 }
